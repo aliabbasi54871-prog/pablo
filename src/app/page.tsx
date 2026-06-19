@@ -1,12 +1,14 @@
 import HeroSection from "@/components/sections/HeroSection";
 import CityBeforeSection from "@/components/sections/CityBeforeSection";
-import EscobarRiseSection from "@/components/sections/EscobarRiseSection";
-import PeakPowerSection from "@/components/sections/PeakPowerSection";
-import DrugWarSection from "@/components/sections/DrugWarSection";
-import EscobarEndSection from "@/components/sections/EscobarEndSection";
-import MemorySection from "@/components/sections/MemorySection";
+import BirthSection from "@/components/sections/BirthSection";
+import EmpireSection from "@/components/sections/EmpireSection";
+import MoneySection from "@/components/sections/MoneySection";
+import LuxurySection from "@/components/sections/LuxurySection";
+import PopularHeroSection from "@/components/sections/PopularHeroSection";
+import PriceSection from "@/components/sections/PriceSection";
+import DeathSection from "@/components/sections/DeathSection";
 import MedellinTodaySection from "@/components/sections/MedellinTodaySection";
-import HistoryOrMythSection from "@/components/sections/HistoryOrMythSection";
+import NetflixSection from "@/components/sections/NetflixSection";
 import FinalSection from "@/components/sections/FinalSection";
 
 export default function Home() {
@@ -14,13 +16,15 @@ export default function Home() {
     <main className="relative">
       <HeroSection />
       <CityBeforeSection />
-      <EscobarRiseSection />
-      <PeakPowerSection />
-      <DrugWarSection />
-      <EscobarEndSection />
-      <MemorySection />
+      <BirthSection />
+      <EmpireSection />
+      <MoneySection />
+      <LuxurySection />
+      <PopularHeroSection />
+      <PriceSection />
+      <DeathSection />
       <MedellinTodaySection />
-      <HistoryOrMythSection />
+      <NetflixSection />
       <FinalSection />
     </main>
   );

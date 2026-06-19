@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #0a0a0a;
+    background-color: #050505;
   }
 
   body {
@@ -20,28 +20,24 @@
 }
 
 @layer components {
-  .glass {
-    @apply border border-glass-border bg-glass backdrop-blur-xl;
-  }
-
-  .glass-strong {
-    @apply border border-white/10 bg-white/[0.06] backdrop-blur-2xl;
-  }
-
   .section-padding {
     @apply px-6 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40;
   }
 
   .heading-display {
-    @apply font-display text-4xl font-light tracking-tight md:text-5xl lg:text-6xl;
+    @apply font-display text-4xl uppercase tracking-wide md:text-5xl lg:text-7xl;
   }
 
   .heading-section {
-    @apply font-display text-3xl font-light tracking-tight md:text-4xl lg:text-5xl;
+    @apply font-display text-3xl uppercase tracking-wide md:text-4xl lg:text-5xl;
   }
 
   .text-body {
-    @apply font-sans text-base leading-relaxed text-white/70 md:text-lg;
+    @apply font-sans text-base leading-relaxed text-secondary md:text-lg;
+  }
+
+  .text-quote {
+    @apply font-quote text-2xl font-light italic leading-relaxed md:text-3xl lg:text-4xl;
   }
 
   .red-line {
@@ -51,58 +47,36 @@
   .image-overlay {
     @apply absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30;
   }
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .dossier-frame {
+    @apply border border-white/20 bg-black/40 p-2 shadow-[0_0_40px_rgba(0,0,0,0.8)];
   }
 
-  .animate-in-view {
-    opacity: 0;
-    transform: translateY(40px);
+  .big-number {
+    @apply font-display text-[clamp(5rem,18vw,12rem)] leading-none text-netflix;
   }
 }
 
-/* Film grain overlay */
 .film-grain {
   pointer-events: none;
   position: fixed;
   inset: 0;
   z-index: 9999;
-  opacity: 0.04;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 128px 128px;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #e50914;
-}
-
-/* Vignette effect */
 .vignette::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 40%,
-    rgba(10, 10, 10, 0.6) 100%
-  );
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(5, 5, 5, 0.7) 100%);
   pointer-events: none;
 }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #E50914; }

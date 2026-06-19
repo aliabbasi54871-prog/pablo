@@ -1,205 +1,198 @@
 import { asset } from "@/lib/paths";
 
+export const projectMeta = {
+  title: "ПАБЛО ЭСКОБАР",
+  subtitle: "КАК МЕДИА СОЗДАЮТ ИСТОРИЧЕСКУЮ ПАМЯТЬ",
+  tagline:
+    "Почему спустя 30 лет после смерти наркобарона миллионы людей знают его имя, но не знают имена тысяч его жертв?",
+  researchQuestion: "Кто сегодня формирует память об Эскобаре — историки или медиа?",
+  footer: {
+    discipline: "История и память в цифровую эпоху",
+    university: "НИУ ВШЭ",
+    year: "2026",
+  },
+};
+
 export const images = {
-  medellin: asset("/images/medellin.jpg"),
-  escobar1989: asset("/images/escobar-1989.jpg"),
+  barrioEscobar: asset("/images/barrio-escobar.jpg"),
   centroMedellin: asset("/images/centro-medellin.jpg"),
   peopleMedellin: asset("/images/people-medellin.jpg"),
-  streetMedellin: asset("/images/street-medellin.jpg"),
   mugshot1976: asset("/images/mugshot-1976.png"),
+  cocaineMachinery: asset("/images/cocaine-machinery.jpg"),
+  cocaineBricks: asset("/images/cocaine-bricks.jpg"),
+  drugSeizure: asset("/images/drug-seizure.jpg"),
+  moneyCoronado: asset("/images/money-coronado.jpg"),
+  drugMoney: asset("/images/drug-money.jpg"),
+  haciendaNapoles: asset("/images/hacienda-napoles.jpg"),
+  porticoHacienda: asset("/images/portico-hacienda.jpg"),
+  escobar1989: asset("/images/escobar-1989.jpg"),
   familyPhoto: asset("/images/family-photo.jpg"),
-  signature: asset("/images/signature.png"),
-  banquet: asset("/images/banquet.jpg"),
   deathEscobar: asset("/images/death-escobar.jpg"),
-  police: asset("/images/police.jpg"),
-  policeCar: asset("/images/police-car.jpg"),
-  carExplosion: asset("/images/car-explosion.jpg"),
   tomb: asset("/images/tomb.jpg"),
-  barrioEscobar: asset("/images/barrio-escobar.jpg"),
+  modernMedellin: asset("/images/modern-medellin.jpg"),
   graffitiComuna13: asset("/images/graffiti-comuna13.jpg"),
   cableCar: asset("/images/cable-car.jpg"),
-  modernMedellin: asset("/images/modern-medellin.jpg"),
-  narcosMedia: asset("/images/narcos-media.jpg"),
-  digitalMemory: asset("/images/digital-memory.jpg"),
-} as const;
-
-export const heroData = {
-  title: "NARCOS",
-  subtitle: "История, память и миф в цифровую эпоху",
-  description:
-    "Миллионы людей знают Пабло Эскобара благодаря Netflix. Но что они знают о реальной истории?",
-  cta: "Начать исследование",
-  background: images.medellin,
-  overlay: images.escobar1989,
+  narcosPoster: asset("/images/narcos-poster.jpg"),
+  medellin: asset("/images/medellin.jpg"),
 };
 
-export const cityBeforeData = {
-  title: "Город до легенды",
-  subtitle: "Медельин до нарковойны",
-  intro:
-    "До того как имя Эскобара стало синонимом наркотрафика, Медельин был городом контрастов — промышленным центром Антьокии, окружённым зелёными холмами и разделённым на богатые кварталы и трущобы.",
-  panels: [
-    {
-      image: images.centroMedellin,
-      title: "Центр города",
-      text: "В 1970-е Медельин переживал бурный рост. Население стремительно увеличивалось, формируя один из крупнейших городов Колумбии.",
-    },
-    {
-      image: images.peopleMedellin,
-      title: "Люди Медельина",
-      text: "Миллионы жителей жили в условиях острого неравенства. Бедность в трущобах соседствовала с роскошью элитных районов.",
-    },
-    {
-      image: images.streetMedellin,
-      title: "Улицы города",
-      text: "Отсутствие социальных лифтов, безработица и коррупция создавали почву, на которой криминал мог стать альтернативой государству.",
-    },
+export const section1 = {
+  id: "hero",
+  title: "ГЕРОЙ ИЛИ ПРЕСТУПНИК?",
+  background: images.barrioEscobar,
+  paragraphs: [
+    "Пабло Эскобар умер в 1993 году.",
+    "Но его история не закончилась.",
+    "Сегодня его имя знают миллионы людей по всему миру.",
+    "Его образ живет в сериалах, мемах, социальных сетях и туристических маршрутах.",
+    "Возникает вопрос:",
+    "Почему мы продолжаем помнить одного наркобарона спустя десятилетия?",
   ],
 };
 
-export const riseData = {
-  title: "Возникновение Эскобара",
-  subtitle: "От Рионегро до Медельинского картеля",
-  mainImage: images.mugshot1976,
-  signature: images.signature,
-  events: [
-    {
-      year: "1949",
-      title: "Рождение",
-      description:
-        "Пабло Эмилио Эскобар Гавириа родился 1 декабря 1949 года в Рионегро. Детство в бедности станет центральным элементом его будущего мифа.",
-      image: images.familyPhoto,
-    },
-    {
-      year: "1976",
-      title: "Первое арестование",
-      description:
-        "Фотография из полицейского архива. Эскобар задержан с 18 килограммами кокаина. Это один из немногих документальных следов до эпохи картеля.",
-      image: images.mugshot1976,
-    },
-    {
-      year: "1982",
-      title: "Медельинский картель",
-      description:
-        "Эскобар объединяет наркоторговцев в структуру беспрецедентной мощи. Медельин становится столицей мирового кокаинового бизнеса.",
-      image: images.escobar1989,
-    },
-    {
-      year: "1989",
-      title: "Пик влияния",
-      description:
-        "Forbes называет его одним из богатейших людей планеты. Он проникает в политику, финансирует строительство и покупает лояльность.",
-      image: images.escobar1989,
-    },
-    {
-      year: "1993",
-      title: "Конец эпохи",
-      description:
-        "После годов «войны» с государством Эскобар становится объектом охоты. Его смерть — не финал истории, а начало мифа.",
-      image: images.deathEscobar,
-    },
+export const section2 = {
+  id: "city",
+  title: "ГОРОД ДО ЛЕГЕНДЫ",
+  leftImage: images.centroMedellin,
+  rightImage: images.peopleMedellin,
+  paragraphs: [
+    "В середине XX века Медельин был обычным промышленным городом Колумбии.",
+    "Быстрая урбанизация, бедность и социальное неравенство создавали условия для появления теневой экономики.",
+    "Для тысяч молодых людей преступный мир становился единственным способом быстро изменить свою жизнь.",
+    "На этом фоне начинается история человека, который изменит не только Колумбию, но и мировую культуру.",
   ],
 };
 
-export const peakData = {
-  title: "Пик могущества",
-  subtitle: "Самый богатый преступник мира",
-  description:
-    "К концу 1980-х Эскобар контролировал огромную часть кокаинового потока в США. Его состояние, власть и жестокость достигли масштаба, который трудно представить.",
-  images: [images.banquet, images.escobar1989],
-  stats: [
-    { value: "80%", label: "кокаина США", detail: "по оценкам, проходило через картель" },
-    { value: "30", suffix: " млрд $", label: "оценка состояния", detail: "в пике — по данным Forbes" },
+export const section3 = {
+  id: "birth",
+  title: "РОЖДЕНИЕ ЭСКОБАРА",
+  image: images.mugshot1976,
+  timeline: ["1949", "1976", "1982", "1989", "1993"],
+  paragraphs: [
+    "Пабло Эмилио Эскобар Гавирия родился в 1949 году.",
+    "Начав с мелких преступлений, он быстро понял, что настоящий капитал находится в международной торговле наркотиками.",
+    "Арест 1976 года стал одним из первых документальных свидетельств его криминальной деятельности.",
+    "Однако остановить его уже было невозможно.",
   ],
 };
 
-export const drugWarData = {
-  title: "Цена мифа",
-  subtitle: "Нарковойна",
-  description:
-    "За роскошью банкетов и миллиардами стояла реальная война. Тысячи погибших, террор, взрывы, коррупция — цена, которую платило колумбийское общество.",
-  images: [
-    { src: images.deathEscobar, caption: "Последствия конфликта" },
-    { src: images.police, caption: "Операции спецподразделений" },
-    { src: images.policeCar, caption: "Город под контролем" },
-    { src: images.carExplosion, caption: "Террор на улицах" },
+export const section4 = {
+  id: "empire",
+  title: "КОКАИНОВАЯ ИМПЕРИЯ",
+  gallery: [images.cocaineMachinery, images.cocaineBricks, images.drugSeizure],
+  paragraphs: [
+    "К концу 1980-х годов Медельинский картель превратился в глобальную логистическую сеть.",
+    "Кокаин перевозили самолетами, автомобилями, контейнерами и промышленным оборудованием.",
+    "Каждый день через картель проходили тонны наркотиков.",
+    "Эта система работала одновременно на нескольких континентах.",
   ],
-  facts: [
-    "Тысячи жертв среди гражданских",
-    "Убийства политиков, судей и журналистов",
-    "Десятилетия социальной травмы",
-    "Разрушение институтов доверия",
+  stat: { value: "80%", label: "контрабанды кокаина в США" },
+};
+
+export const section5 = {
+  id: "money",
+  title: "ДЕНЬГИ БЕЗ ГРАНИЦ",
+  images: [images.moneyCoronado, images.drugMoney],
+  paragraphs: [
+    "Доходы картеля исчислялись миллиардами долларов.",
+    "Количество наличных было настолько велико, что часть денег просто уничтожалась из-за влаги и времени.",
+    "По оценкам современников, состояние Эскобара делало его одним из самых богатых людей планеты.",
+  ],
+  stat: { value: "$30 000 000 000", label: "оценка состояния" },
+};
+
+export const section6 = {
+  id: "luxury",
+  title: "РОСКОШЬ КАК СПЕКТАКЛЬ",
+  images: [images.haciendaNapoles, images.porticoHacienda],
+  paragraphs: [
+    "Эскобар превратил богатство в демонстрацию власти.",
+    "Его поместье Hacienda Nápoles включало частный аэродром, зоопарк, коллекцию автомобилей и десятки гектаров земли.",
+    "Это было не просто место проживания.",
+    "Это был символ абсолютного могущества.",
   ],
 };
 
-export const endData = {
-  title: "2 декабря 1993",
-  subtitle: "Конец Эскобара",
-  text: "На крыше дома в Медельине закончилась жизнь человека, который переписал историю Колумбии. Но история о нём только начиналась.",
+export const section7 = {
+  id: "popular-hero",
+  title: "НАРОДНЫЙ ГЕРОЙ?",
+  images: [images.escobar1989, images.familyPhoto],
+  paragraphs: [
+    "Для части населения Эскобар был преступником.",
+    "Для другой части — человеком, который строил жилье, футбольные поля и помогал бедным районам.",
+    "Именно этот образ благотворителя стал основой для последующей романтизации его личности.",
+  ],
+  quote: "Робин Гуд из Медельина",
+};
+
+export const section8 = {
+  id: "price",
+  title: "ЦЕНА ЛЕГЕНДЫ",
   image: images.deathEscobar,
+  paragraphs: [
+    "За образом народного героя скрывалась одна из самых кровавых страниц истории Латинской Америки.",
+    "Убийства судей.",
+    "Журналистов.",
+    "Полицейских.",
+    "Политиков.",
+    "Мирных жителей.",
+    "Тысячи человеческих жизней стали ценой кокаиновой империи.",
+  ],
 };
 
-export const memoryData = {
-  title: "Память",
-  subtitle: "После смерти история не закончилась",
-  text: "Память стала новым полем борьбы. Могила, музеи, туристические маршруты, сериалы и мемы — всё это конкурирует за право рассказать, кем был Пабло Эскобар.",
+export const section9 = {
+  id: "death",
+  title: "СМЕРТЬ НЕ СТАЛА КОНЦОМ",
   image: images.tomb,
-};
-
-export const medellinTodayData = {
-  title: "Медельин сегодня",
-  subtitle: "Контраст эпох",
-  past: {
-    era: "1980-е",
-    title: "Город страха",
-    images: [images.barrioEscobar, images.graffitiComuna13],
-    text: "Трущобы, насилие, баррио, названные в честь Эскобара. Город, в котором криминал подменял государство.",
-  },
-  present: {
-    era: "2020-е",
-    title: "Город трансформации",
-    images: [images.cableCar, images.modernMedellin],
-    text: "Канатные дороги, граффити Коммуны 13, инновации и туризм. Медельин пытается переписать свою историю.",
-  },
-};
-
-export const mythData = {
-  title: "История или миф?",
-  subtitle: "Кто сегодня создаёт память?",
-  question: "Историки? Музеи? Netflix? TikTok?",
-  text: "В цифровую эпоху память формируется не в архивах, а на экранах. Алгоритмы решают, чья версия прошлого станет общей.",
-  images: [images.narcosMedia, images.digitalMemory],
-  nodes: [
-    { id: "historians", label: "Историки", description: "Академическая версия, основанная на документах и архивах", x: 15, y: 20 },
-    { id: "museums", label: "Музеи", description: "Материальные артефакты и экспозиции прошлого", x: 85, y: 25 },
-    { id: "netflix", label: "Netflix", description: "Эмоциональный нарратив, доступный миллионам за один клик", x: 50, y: 10 },
-    { id: "tiktok", label: "TikTok", description: "Короткие видео и мемы, переписывающие образ за секунды", x: 20, y: 75 },
-    { id: "youtube", label: "YouTube", description: "Документалистика и блоги, конкурирующие с академией", x: 80, y: 70 },
-    { id: "wikipedia", label: "Wikipedia", description: "Коллективная энциклопедия — поле редактирования памяти", x: 50, y: 85 },
+  paragraphs: [
+    "2 декабря 1993 года Эскобар был убит.",
+    "Однако его физическая смерть не означала исчезновение из общественной памяти.",
+    "Напротив.",
+    "Именно после смерти началось формирование глобального мифа.",
   ],
-  center: "Pablo Escobar",
 };
 
-export const finalData = {
+export const section10 = {
+  id: "today",
+  title: "МЕДЕЛЬИН СЕГОДНЯ",
+  images: [images.modernMedellin, images.graffitiComuna13, images.cableCar],
+  paragraphs: [
+    "Сегодня Медельин является одним из самых инновационных городов Латинской Америки.",
+    "Однако прошлое продолжает присутствовать в городской среде.",
+    "Граффити.",
+    "Музеи.",
+    "Экскурсии.",
+    "Туристические маршруты.",
+    "Город одновременно помнит и пытается забыть собственную историю.",
+  ],
+};
+
+export const section11 = {
+  id: "netflix",
+  title: "NETFLIX И НОВАЯ ПАМЯТЬ",
+  poster: images.narcosPoster,
+  paragraphs: [
+    "Для миллионов людей история Эскобара началась не с архивов.",
+    "Не с документов.",
+    "Не с исследований.",
+    "Она началась с сериала Narcos.",
+    "Массовая культура превратилась в главный источник исторических знаний.",
+    "Алгоритмы стриминговых платформ получили возможность влиять на коллективную память сильнее традиционных институтов.",
+  ],
+};
+
+export const section12 = {
+  id: "final",
   background: images.medellin,
-  lines: [
-    "Narcos не рассказывает историю.",
-    "Narcos создаёт память о ней.",
-    "В цифровую эпоху медиа определяют, что общество будет помнить, а что забудет.",
+  paragraphs: [
+    "История Пабло Эскобара показывает, что в цифровую эпоху прошлое больше не принадлежит исключительно историкам.",
+    "Кино.",
+    "Стриминговые сервисы.",
+    "Социальные сети.",
+    "Алгоритмы рекомендаций.",
+    "Все они участвуют в формировании коллективной памяти.",
+    "Мы помним не только то, что произошло.",
+    "Мы помним то, что нам показали.",
   ],
-  cta: "Изучить источники",
-  sources: [
-    { title: "Ян Ассман — Культурная память", type: "Теория" },
-    { title: "Морис Хальбвакс — Коллективная память", type: "Теория" },
-    { title: "Пьер Нора — Места памяти", type: "Теория" },
-    { title: "Narcos (Netflix, 2015–2017)", type: "Медиа" },
-    { title: "Forbes — список богатейших (1989)", type: "Архив" },
-    { title: "Колумбийские государственные архивы", type: "Архив" },
-  ],
-};
-
-export const footerData = {
-  discipline: "История и память в цифровую эпоху",
-  university: "НИУ ВШЭ",
-  year: "2026",
+  quote: "Narcos не рассказывает историю. Narcos создает память о ней.",
 };
