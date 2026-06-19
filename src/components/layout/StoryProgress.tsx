@@ -1,0 +1,15 @@
+"use client";
+
+import { useScroll, useSpring, motion } from "framer-motion";
+
+export default function StoryProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+
+  return (
+    <motion.div
+      className="fixed left-0 right-0 top-0 z-50 h-[2px] origin-left bg-netflix"
+      style={{ scaleX }}
+    />
+  );
+}
