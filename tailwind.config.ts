@@ -12,8 +12,8 @@ const config: Config = {
         background: "#080808",
         surface: "#111111",
         netflix: "#E50914",
-        secondary: "#9CA3AF",
-        muted: "#6B7280",
+        secondary: "#D4D4D4",
+        muted: "#8A8A8A",
         border: "rgba(255,255,255,0.1)",
       },
       fontFamily: {

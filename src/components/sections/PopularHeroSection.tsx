@@ -37,10 +37,10 @@ export default function PopularHeroSection() {
         </div>
 
         <div className="section-grid mt-14 sm:mt-16">
-          <div className="space-y-5">
+          <div className="space-y-6">
             {section7.paragraphs.map((p, i) => (
               <ScrollReveal key={i} delay={i * 0.05}>
-                <p className="text-body">{p}</p>
+                <p className="text-body-strong">{p}</p>
               </ScrollReveal>
             ))}
           </div>
