@@ -21,27 +21,27 @@
 
 @layer components {
   .section-padding {
-    @apply px-6 py-24 md:px-12 md:py-32 lg:px-20 lg:py-40;
+    @apply px-4 py-16 sm:px-6 sm:py-24 md:px-12 md:py-32 lg:px-20 lg:py-40;
   }
 
   .heading-display {
-    @apply font-display text-4xl uppercase tracking-wide md:text-5xl lg:text-7xl;
+    @apply font-display text-3xl uppercase tracking-wide sm:text-4xl md:text-5xl lg:text-7xl;
   }
 
   .heading-section {
-    @apply font-display text-3xl uppercase tracking-wide md:text-4xl lg:text-5xl;
+    @apply font-display text-2xl uppercase tracking-wide sm:text-3xl md:text-4xl lg:text-5xl;
   }
 
   .text-body {
-    @apply font-sans text-base leading-relaxed text-secondary md:text-lg;
+    @apply font-sans text-sm leading-relaxed text-secondary sm:text-base md:text-lg;
   }
 
   .text-quote {
-    @apply font-quote text-2xl font-light italic leading-relaxed md:text-3xl lg:text-4xl;
+    @apply font-quote text-xl font-light italic leading-relaxed sm:text-2xl md:text-3xl lg:text-4xl;
   }
 
   .red-line {
-    @apply h-px w-16 bg-netflix;
+    @apply h-px w-12 bg-netflix sm:w-16;
   }
 
   .image-overlay {
@@ -53,7 +53,25 @@
   }
 
   .big-number {
-    @apply font-display text-[clamp(5rem,18vw,12rem)] leading-none text-netflix;
+    @apply font-display text-[clamp(3.5rem,16vw,12rem)] leading-none text-netflix;
+  }
+
+  .media-frame {
+    @apply bg-white/5;
+  }
+
+  .horizontal-scroll {
+    @apply flex gap-4 overflow-x-auto px-4 pb-4 snap-x snap-mandatory sm:gap-6 sm:px-6 md:overflow-visible md:px-12;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .horizontal-scroll > * {
+    @apply snap-center shrink-0;
   }
 }
 
