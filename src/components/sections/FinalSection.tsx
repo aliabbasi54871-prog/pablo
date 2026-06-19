@@ -1,75 +1,80 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
 import { section12, projectMeta } from "@/data/content";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function FinalSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1.08, 1]);
-
   return (
     <>
-      <section id={section12.id} ref={ref} className="relative min-h-[100svh] overflow-hidden">
-        <motion.div style={{ scale }} className="absolute inset-0">
-          <Image src={section12.background} alt="Медельин" fill className="object-cover" sizes="100vw" />
-        </motion.div>
-        <div className="absolute inset-0 bg-black/82" />
-        <div className="vignette absolute inset-0" />
+      <section id={section12.id} className="relative min-h-[100svh] overflow-hidden bg-black">
+        <div className="absolute inset-0">
+          <Image
+            src={section12.background}
+            alt="Медельин"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        <div className="image-scrim-heavy absolute inset-0" />
 
-        <div className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-4 py-20 text-center sm:px-6 sm:py-32">
-          <div className="max-w-3xl space-y-3 sm:space-y-5">
-            {section12.paragraphs.map((p, i) => (
-              <motion.p
-                key={i}
-                className={`text-body ${
-                  ["Кино.", "Стриминговые сервисы.", "Социальные сети.", "Алгоритмы рекомендаций."].includes(p)
-                    ? "font-display text-sm uppercase tracking-wider text-secondary sm:text-lg"
-                    : ""
-                } ${i >= section12.paragraphs.length - 2 ? "text-sm text-white sm:text-base md:text-lg" : ""}`}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                {p}
-              </motion.p>
-            ))}
+        <div className="relative z-10 flex min-h-[100svh] items-center">
+          <div className="content-wrap section-padding w-full">
+            <div className="mx-auto max-w-3xl text-center">
+              <ScrollReveal>
+                <div className="flex justify-center">
+                  <span className="chapter-badge">Финал</span>
+                </div>
+              </ScrollReveal>
+
+              <div className="mt-10 space-y-4">
+                {section12.paragraphs.map((p, i) => (
+                  <ScrollReveal key={i} delay={i * 0.04}>
+                    <p
+                      className={
+                        ["Кино.", "Стриминговые сервисы.", "Социальные сети.", "Алгоритмы рекомендаций."].includes(p)
+                          ? "font-display text-base uppercase tracking-wide text-secondary sm:text-lg"
+                          : i >= section12.paragraphs.length - 2
+                            ? "text-body-strong text-white"
+                            : "text-body"
+                      }
+                    >
+                      {p}
+                    </p>
+                  </ScrollReveal>
+                ))}
+              </div>
+
+              <ScrollReveal delay={0.3}>
+                <blockquote className="mt-14 border-t border-border pt-12 sm:mt-16">
+                  <p className="text-quote">
+                    &ldquo;Narcos не рассказывает историю.
+                    <br />
+                    <span className="text-netflix not-italic">Narcos создает память о ней.</span>&rdquo;
+                  </p>
+                </blockquote>
+              </ScrollReveal>
+            </div>
           </div>
-
-          <motion.blockquote
-            className="mt-14 max-w-2xl border-t border-netflix/30 pt-10 sm:mt-20 sm:pt-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
-          >
-            <p className="text-quote text-white">
-              &ldquo;Narcos не рассказывает историю.
-              <br />
-              <span className="text-netflix">Narcos создает память о ней.</span>&rdquo;
-            </p>
-          </motion.blockquote>
         </div>
       </section>
 
-      <footer className="border-t border-white/5 bg-background px-4 py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="font-display text-xs uppercase tracking-[0.2em] text-secondary sm:text-sm sm:tracking-[0.3em]">
+      <footer className="border-t border-border bg-background px-5 py-14 sm:px-8 sm:py-20">
+        <div className="content-wrap text-center">
+          <p className="font-display text-base uppercase tracking-editorial text-white sm:text-lg">
             {projectMeta.researchQuestion}
           </p>
-          <p className="mt-5 text-[10px] uppercase tracking-[0.2em] text-secondary/60 sm:mt-6 sm:text-xs sm:tracking-[0.3em]">
-            Проект по дисциплине
-          </p>
-          <p className="mt-2 font-display text-base text-white/70 sm:mt-3 sm:text-lg">
-            «{projectMeta.footer.discipline}»
-          </p>
-          <div className="mt-5 flex items-center justify-center gap-3 text-sm text-secondary/60 sm:mt-6 sm:gap-4">
-            <span>{projectMeta.footer.university}</span>
-            <span className="h-1 w-1 rounded-full bg-netflix" />
-            <span>{projectMeta.footer.year}</span>
+          <div className="mx-auto mt-10 max-w-md border-t border-border pt-8">
+            <p className="text-label">Проект по дисциплине</p>
+            <p className="mt-3 font-quote text-xl text-[#E5E5E5] sm:text-2xl">
+              «{projectMeta.footer.discipline}»
+            </p>
+            <div className="mt-6 flex items-center justify-center gap-4 text-sm text-muted">
+              <span>{projectMeta.footer.university}</span>
+              <span className="h-1 w-1 rounded-full bg-netflix" />
+              <span>{projectMeta.footer.year}</span>
+            </div>
           </div>
         </div>
       </footer>

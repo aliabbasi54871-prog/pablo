@@ -10,21 +10,20 @@ export default function PopularHeroSection() {
 
   return (
     <section id="popular-hero" className="section-padding bg-background">
-      <div className="mx-auto max-w-7xl">
+      <div className="content-wrap">
         <ScrollReveal>
-          <div className="red-line mb-6 sm:mb-8" />
-          <h2 className="heading-section">{section7.title}</h2>
+          <span className="chapter-badge">Глава 06</span>
+          <h2 className="heading-section mt-4">{section7.title}</h2>
         </ScrollReveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 sm:gap-8 md:grid-cols-2">
+        <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2">
           {section7.images.map((src, i) => (
             <motion.div
               key={src}
-              className="relative"
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.12 }}
+              transition={{ delay: i * 0.08, duration: 0.45 }}
             >
               <SectionImage
                 src={src}
@@ -32,24 +31,25 @@ export default function PopularHeroSection() {
                 aspect="aspect-[4/5]"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="pointer-events-none absolute inset-0 bg-black/15" />
+              <p className="mt-3 text-label">{labels[i]}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-10 max-w-2xl space-y-4 sm:mt-12 sm:space-y-5">
-          {section7.paragraphs.map((p, i) => (
-            <ScrollReveal key={i} delay={i * 0.08}>
-              <p className="text-body">{p}</p>
-            </ScrollReveal>
-          ))}
+        <div className="section-grid mt-14 sm:mt-16">
+          <div className="space-y-5">
+            {section7.paragraphs.map((p, i) => (
+              <ScrollReveal key={i} delay={i * 0.05}>
+                <p className="text-body">{p}</p>
+              </ScrollReveal>
+            ))}
+          </div>
+          <ScrollReveal delay={0.15}>
+            <blockquote className="border-l-2 border-netflix pl-6 sm:pl-8">
+              <p className="text-quote">&ldquo;{section7.quote}&rdquo;</p>
+            </blockquote>
+          </ScrollReveal>
         </div>
-
-        <ScrollReveal delay={0.3}>
-          <blockquote className="mt-12 border-l-2 border-netflix pl-5 sm:mt-16 sm:pl-8">
-            <p className="text-quote text-white/90">&ldquo;{section7.quote}&rdquo;</p>
-          </blockquote>
-        </ScrollReveal>
       </div>
     </section>
   );

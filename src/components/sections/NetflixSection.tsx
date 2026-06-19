@@ -8,44 +8,41 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 export default function NetflixSection() {
   return (
     <section id={section11.id} className="section-padding bg-black">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 sm:gap-16 lg:grid-cols-2">
+      <div className="content-wrap section-grid items-center">
         <motion.div
-          className="relative mx-auto w-full max-w-[280px] sm:max-w-sm"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="mx-auto w-full max-w-xs sm:max-w-sm lg:mx-0"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.5 }}
         >
           <SectionImage
             src={section11.poster}
             alt="Постер Narcos"
             aspect="aspect-[2/3]"
-            sizes="(max-width: 768px) 280px, 400px"
+            sizes="(max-width: 768px) 300px, 400px"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-          <div className="absolute bottom-4 left-4 font-display text-2xl text-netflix sm:bottom-6 sm:left-6 sm:text-4xl">
+          <p className="mt-4 text-center font-display text-3xl text-netflix sm:text-4xl lg:text-left">
             NARCOS
-          </div>
+          </p>
         </motion.div>
 
         <div>
           <ScrollReveal>
-            <div className="red-line mb-6 sm:mb-8" />
-            <h2 className="heading-section">{section11.title}</h2>
+            <span className="chapter-badge">Глава 10</span>
+            <h2 className="heading-section mt-4">{section11.title}</h2>
           </ScrollReveal>
-          <div className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
+          <div className="mt-8 space-y-3">
             {section11.paragraphs.map((p, i) => (
-              <ScrollReveal key={i} delay={i * 0.06}>
+              <ScrollReveal key={i} delay={i * 0.04}>
                 <p
-                  className={`text-body ${
+                  className={
                     ["Не с архивов.", "Не с документов.", "Не с исследований."].includes(p)
-                      ? "text-white/50"
-                      : ""
-                  } ${
-                    p === "Она началась с сериала Narcos."
-                      ? "font-display text-base uppercase text-netflix sm:text-xl"
-                      : ""
-                  }`}
+                      ? "text-body text-muted"
+                      : p === "Она началась с сериала Narcos."
+                        ? "font-display text-lg uppercase text-netflix sm:text-xl"
+                        : "text-body"
+                  }
                 >
                   {p}
                 </p>

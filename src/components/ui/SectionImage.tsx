@@ -20,7 +20,7 @@ export default function SectionImage({
   sizes = "100vw",
 }: SectionImageProps) {
   return (
-    <div className={`media-frame relative w-full overflow-hidden ${aspect} ${className}`}>
+    <div className={`media-frame relative w-full ${aspect} ${className}`}>
       <Image
         src={src}
         alt={alt}

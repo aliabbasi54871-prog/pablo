@@ -6,45 +6,48 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function CityBeforeSection() {
   return (
-    <section id={section2.id} className="relative bg-background">
-      <div className="grid md:grid-cols-2">
+    <section id={section2.id} className="bg-background">
+      <div className="grid lg:grid-cols-2">
         <div className="relative">
           <SectionImage
             src={section2.leftImage}
             alt="Старый Медельин"
-            aspect="aspect-[4/3] md:aspect-auto md:min-h-screen"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            aspect="aspect-[5/4] lg:aspect-auto lg:min-h-[70vh]"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-black/50" />
-          <div className="absolute bottom-4 left-4 font-display text-xs uppercase tracking-[0.2em] text-secondary sm:bottom-8 sm:left-8 sm:text-sm sm:tracking-[0.3em]">
-            Медельин · 1970-е
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-5 sm:p-8">
+            <span className="text-label">Медельин · 1970-е</span>
           </div>
         </div>
-        <div className="relative">
+        <div className="relative border-t border-border lg:border-l lg:border-t-0">
           <SectionImage
             src={section2.rightImage}
             alt="Жители Медельина"
-            aspect="aspect-[4/3] md:aspect-auto md:min-h-screen"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            aspect="aspect-[5/4] lg:aspect-auto lg:min-h-[70vh]"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute bottom-4 right-4 font-display text-xs uppercase tracking-[0.2em] text-secondary sm:bottom-8 sm:right-8 sm:text-sm sm:tracking-[0.3em]">
-            Люди города
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-5 sm:p-8 lg:text-right">
+            <span className="text-label">Люди города</span>
           </div>
         </div>
       </div>
 
-      <div className="section-padding mx-auto max-w-3xl">
-        <ScrollReveal>
-          <div className="red-line mb-6 sm:mb-8" />
-          <h2 className="heading-section">{section2.title}</h2>
-        </ScrollReveal>
-        <div className="mt-8 space-y-5 sm:mt-10 sm:space-y-6">
-          {section2.paragraphs.map((p, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <p className="text-body">{p}</p>
-            </ScrollReveal>
-          ))}
+      <div className="section-padding">
+        <div className="content-wrap section-grid">
+          <ScrollReveal>
+            <div>
+              <span className="chapter-badge">Глава 01</span>
+              <h2 className="heading-section mt-4">{section2.title}</h2>
+              <div className="red-line mt-6" />
+            </div>
+          </ScrollReveal>
+          <div className="space-y-5">
+            {section2.paragraphs.map((p, i) => (
+              <ScrollReveal key={i} delay={i * 0.05}>
+                <p className="text-body">{p}</p>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

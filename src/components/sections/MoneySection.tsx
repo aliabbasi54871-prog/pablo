@@ -9,48 +9,50 @@ export default function MoneySection() {
   const labels = ["Деньги картеля", "Изъятие DEA"];
 
   return (
-    <section id={section5.id} className="section-padding bg-background">
-      <div className="mx-auto max-w-7xl">
+    <section id={section5.id} className="section-padding bg-surface">
+      <div className="content-wrap">
         <ScrollReveal>
-          <div className="red-line mb-6 sm:mb-8" />
-          <h2 className="heading-section">{section5.title}</h2>
+          <span className="chapter-badge">Глава 04</span>
+          <h2 className="heading-section mt-4">{section5.title}</h2>
         </ScrollReveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2">
           {section5.images.map((src, i) => (
             <motion.div
               key={src}
-              className="relative"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.12 }}
+              transition={{ delay: i * 0.08, duration: 0.45 }}
             >
-              <SectionImage src={src} alt={labels[i]} aspect="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 50vw" />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <SectionImage
+                src={src}
+                alt={labels[i]}
+                aspect="aspect-[5/4]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <p className="mt-3 text-label">{labels[i]}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-10 max-w-2xl space-y-4 sm:mt-12 sm:space-y-5">
-          {section5.paragraphs.map((p, i) => (
-            <ScrollReveal key={i} delay={i * 0.08}>
-              <p className="text-body">{p}</p>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        <ScrollReveal delay={0.2}>
-          <div className="mt-14 text-center sm:mt-20">
-            <div className="font-display text-[clamp(1.5rem,7vw,5rem)] leading-tight text-netflix">
-              <span className="block sm:inline">$30</span>
-              <span className="block text-[clamp(1rem,5vw,3rem)] sm:inline sm:ml-2">000 000 000</span>
-            </div>
-            <p className="mt-3 text-xs uppercase tracking-[0.15em] text-secondary sm:mt-4 sm:text-sm sm:tracking-[0.2em]">
-              {section5.stat.label}
-            </p>
+        <div className="section-grid mt-14 sm:mt-16">
+          <div className="space-y-5">
+            {section5.paragraphs.map((p, i) => (
+              <ScrollReveal key={i} delay={i * 0.05}>
+                <p className="text-body">{p}</p>
+              </ScrollReveal>
+            ))}
           </div>
-        </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <div className="stat-block lg:pt-0 lg:text-right">
+              <div className="font-display text-[clamp(2.5rem,8vw,5.5rem)] leading-none text-netflix">
+                $30<span className="ml-2 text-[0.55em]">млрд</span>
+              </div>
+              <p className="mt-4 text-label">{section5.stat.label}</p>
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

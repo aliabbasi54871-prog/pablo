@@ -7,53 +7,54 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function BirthSection() {
   return (
-    <section id={section3.id} className="section-padding bg-background">
-      <div className="mx-auto max-w-7xl">
+    <section id={section3.id} className="section-padding bg-surface">
+      <div className="content-wrap">
         <ScrollReveal>
-          <div className="red-line mb-6 sm:mb-8" />
-          <h2 className="heading-section">{section3.title}</h2>
+          <span className="chapter-badge">Глава 02</span>
+          <h2 className="heading-section mt-4">{section3.title}</h2>
         </ScrollReveal>
 
-        <div className="mt-10 grid items-start gap-10 sm:mt-16 sm:gap-16 lg:grid-cols-2">
+        <div className="section-grid mt-12 sm:mt-16">
           <motion.div
-            className="dossier-frame mx-auto w-full max-w-md"
-            initial={{ opacity: 0, rotate: -1 }}
-            whileInView={{ opacity: 1, rotate: 0 }}
+            className="dossier-frame mx-auto w-full max-w-sm lg:mx-0"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="border-b border-white/10 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-netflix sm:px-4 sm:py-3 sm:text-[10px] sm:tracking-[0.3em]">
+            <div className="border-b border-border px-4 py-3 text-label text-netflix">
               Полицейское досье · Архив · 1976
             </div>
             <SectionImage
               src={section3.image}
               alt="Магшот 1976"
               aspect="aspect-[3/4]"
-              imageClassName="object-cover object-top grayscale"
-              sizes="(max-width: 768px) 90vw, 400px"
+              imageClassName="object-cover object-top"
+              sizes="(max-width: 768px) 90vw, 360px"
             />
-            <div className="px-3 py-2 font-mono text-[10px] text-secondary sm:px-4 sm:py-3 sm:text-xs">
+            <div className="px-4 py-3 font-mono text-xs text-muted">
               ID: ESCOBAR-PABLO-1976
             </div>
           </motion.div>
 
           <div>
-            <div className="flex flex-wrap gap-3 border-b border-white/10 pb-6 sm:gap-4 sm:pb-8">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 border-b border-border pb-8">
               {section3.timeline.map((year, i) => (
                 <motion.span
                   key={year}
-                  className="font-display text-2xl text-netflix sm:text-4xl md:text-5xl"
-                  initial={{ opacity: 0, y: 15 }}
+                  className="font-display text-3xl text-netflix sm:text-4xl"
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
+                  transition={{ delay: i * 0.06, duration: 0.4 }}
                 >
                   {year}
                 </motion.span>
               ))}
             </div>
-            <div className="mt-6 space-y-4 sm:mt-8 sm:space-y-5">
+            <div className="mt-8 space-y-5">
               {section3.paragraphs.map((p, i) => (
-                <ScrollReveal key={i} delay={i * 0.08}>
+                <ScrollReveal key={i} delay={i * 0.05}>
                   <p className="text-body">{p}</p>
                 </ScrollReveal>
               ))}

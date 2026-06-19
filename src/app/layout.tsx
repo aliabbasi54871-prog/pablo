@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue, Cormorant_Garamond } from "next/font/google";
+import { Inter, Oswald, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import FilmGrain from "@/components/layout/FilmGrain";
 import StoryProgress from "@/components/layout/StoryProgress";
@@ -10,18 +10,24 @@ const inter = Inter({
   display: "swap",
 });
 
-const bebas = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
+const oswald = Oswald({
+  subsets: ["latin", "cyrillic"],
   variable: "--font-display",
   display: "swap",
 });
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   variable: "--font-quote",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -35,8 +41,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ru" className={`${inter.variable} ${bebas.variable} ${cormorant.variable}`}>
-      <body className="font-sans">
+    <html lang="ru" className={`${inter.variable} ${oswald.variable} ${cormorant.variable} ${mono.variable}`}>
+      <body className="font-sans text-[#F5F5F5]">
         <StoryProgress />
         <FilmGrain />
         {children}

@@ -1,71 +1,70 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
 import { section1, projectMeta } from "@/data/content";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
   return (
-    <section ref={ref} id={section1.id} className="relative min-h-[100svh] overflow-hidden">
-      <motion.div style={{ scale }} className="absolute inset-0">
-        <Image src={section1.background} alt="Баррио Пабло Эскобар" fill className="object-cover" priority sizes="100vw" />
-      </motion.div>
-      <div className="absolute inset-0 bg-black/75" />
-      <div className="vignette absolute inset-0" />
+    <section id={section1.id} className="relative min-h-[100svh] overflow-hidden bg-black">
+      <div className="absolute inset-0">
+        <Image
+          src={section1.background}
+          alt="Баррио Пабло Эскобар"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+      </div>
+      <div className="image-scrim-heavy absolute inset-0" />
 
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-4 py-20 text-center sm:px-6"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mb-8 sm:mb-16"
-        >
-          <p className="font-display text-xs uppercase tracking-[0.25em] text-netflix sm:text-sm sm:tracking-[0.4em]">
-            {projectMeta.title}
-          </p>
-          <p className="mt-2 font-display text-[10px] uppercase tracking-[0.15em] text-secondary sm:text-xs sm:tracking-[0.25em]">
-            {projectMeta.subtitle}
-          </p>
-        </motion.div>
+      <div className="relative z-10 flex min-h-[100svh] flex-col justify-end">
+        <div className="content-wrap section-padding !pb-12 sm:!pb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-10 max-w-3xl"
+          >
+            <p className="text-label text-netflix">{projectMeta.title}</p>
+            <p className="mt-2 text-label">{projectMeta.subtitle}</p>
+          </motion.div>
 
-        <ScrollReveal>
-          <h1 className="heading-display text-white">{section1.title}</h1>
-        </ScrollReveal>
+          <ScrollReveal>
+            <h1 className="heading-display max-w-4xl">{section1.title}</h1>
+          </ScrollReveal>
 
-        <div className="mt-8 max-w-2xl space-y-3 sm:mt-12 sm:space-y-4">
-          {section1.paragraphs.map((p, i) => (
-            <ScrollReveal key={i} delay={i * 0.08}>
-              <p
-                className={`text-body ${
-                  i === section1.paragraphs.length - 2
-                    ? "font-display text-base uppercase tracking-wider text-white sm:text-xl md:text-2xl"
-                    : ""
-                } ${i === section1.paragraphs.length - 1 ? "text-sm text-white sm:text-base md:text-xl" : ""}`}
-              >
-                {p}
-              </p>
-            </ScrollReveal>
-          ))}
+          <div className="mt-10 grid max-w-4xl gap-6 lg:grid-cols-[1.2fr_1fr] lg:gap-12">
+            <div className="space-y-4">
+              {section1.paragraphs.slice(0, 4).map((p, i) => (
+                <ScrollReveal key={i} delay={i * 0.05}>
+                  <p className="text-body-strong">{p}</p>
+                </ScrollReveal>
+              ))}
+            </div>
+            <div className="border-l border-border pl-6 lg:pl-8">
+              <ScrollReveal delay={0.15}>
+                <p className="font-display text-lg uppercase leading-snug tracking-wide text-white sm:text-xl">
+                  {section1.paragraphs[4]}
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.2}>
+                <p className="mt-4 text-body-strong text-white">{section1.paragraphs[5]}</p>
+              </ScrollReveal>
+            </div>
+          </div>
         </div>
 
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity }}
-          className="absolute bottom-8 flex flex-col items-center"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2.2, repeat: Infinity }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-label"
         >
-          <span className="text-xs text-secondary">↓</span>
+          Прокрутите
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
